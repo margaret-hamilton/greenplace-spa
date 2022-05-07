@@ -1,5 +1,14 @@
 import React from 'react';
+import { Intro, Products, Heading, Features } from '../components';
 
 export default function Home() {
-  return <div>Home Page</div>;
+  return (
+    <>
+      <Intro />
+
+      <Heading text="Produtos" />
+      <Products />
+      <Features />
+    </>
+  );
 }

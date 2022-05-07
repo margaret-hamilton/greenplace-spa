@@ -1,13 +1,12 @@
-import { Header, Intro, Products } from './components';
+import { Header } from './components';
+import { Home } from './pages';
 
 function App() {
   return (
     <div className="App">
       <Header />
 
-      <Intro />
-
-      <Products />
+      <Home />
     </div>
   );
 }

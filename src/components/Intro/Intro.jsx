@@ -1,24 +1,32 @@
 import React from 'react';
 
+import IntroImage from '../../assets/images/intro/delivery-2.png';
+
 export default function Intro() {
   return (
-    <section className="section-intro bg-primary padding-y-lg">
+    <section className="bg-white shadow">
       <div className="container">
-        <article className="my-5">
-          <h1 className="display-4 text-white">
-            Best products & <br /> brands in our store
-          </h1>
+        <div className="row align-items-center" style={{ minHeight: 520 }}>
+          <div className="col-lg-6 col-xl-6 col-xxl-5">
+            <article className="my-5">
+              <h1 className="display-4">
+                O Marketplace do <br /> futuro sustentável
+              </h1>
 
-          <p className="lead text-white">Trendy Products, Factory Prices, Excellent Service</p>
+              <p className="lead">
+                Nossos centros de distribuição funcionam como ponto de coleta para reciclagem.
+              </p>
 
-          <a href="/#" className="btn btn-warning">
-            Purchase now
-          </a>
+              <a href="/#" className="btn btn-success btn-lg">
+                Saiba mais
+              </a>
+            </article>
+          </div>
 
-          <a href="/#" className="btn btn-light">
-            Learn more
-          </a>
-        </article>
+          <div className="col-lg-6 col-xl-6 col-xxl-7">
+            <img src={IntroImage} className="mw-100" alt="" />
+          </div>
+        </div>
       </div>
     </section>
   );

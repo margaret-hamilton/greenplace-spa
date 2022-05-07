@@ -1,137 +1,24 @@
 import React from 'react';
 
-import Logo from '../../assets/images/logo.svg';
+import { HeaderIcons } from './HeaderIcons';
+import { HeaderNavigation } from './HeaderNavigation';
+import { HeaderSearch } from './HeaderSearch';
+import { Logo } from '../Logo';
 
 export default function Header() {
   return (
-    <header className="section-header border-bottom">
-      <nav className="navbar navbar-expand-xl navbar-light">
+    <header className="section-header">
+      <section className="navbar navbar-expand-lg navbar-dark bg-light">
         <div className="container">
-          <a className="navbar-brand" href="/#">
-            <img src={Logo} height="40" className="logo" alt="" />
-          </a>
+          <Logo />
 
-          <div className="d-flex align-items-center">
-            <div className="d-xl-none me-2">
-              <a href="/#" className="btn btn-light">
-                <i className="fa fa-user"></i>
-              </a>
-              <a href="/#" className="btn btn-light">
-                <i className="fa fa-heart"></i>
-              </a>
-              <a href="/#" className="btn btn-light">
-                Cart (2)
-              </a>
-            </div>
+          <HeaderSearch />
 
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbar_main"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-          </div>
-
-          <div className="collapse navbar-collapse" id="navbar_main">
-            <ul className="navbar-nav me-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="/#">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/#">
-                  Men
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/#">
-                  Women
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/#">
-                  Kids
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/#">
-                  Accessory
-                </a>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="dropdown-toggle nav-link"
-                  href="/#"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                >
-                  More
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="/#">
-                      Foods and Drink
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/#">
-                      Home interior
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/#">
-                      Category name
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/#">
-                      Another category
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-
-            <form className="me-3">
-              <div className="input-group">
-                <input type="text" className="form-control" placeholder="Search" />
-                <button className="btn-icon btn-light btn">
-                  <i className="fa fa-search"></i>
-                </button>
-              </div>
-            </form>
-
-            <div className="widgets-wrap d-none d-xl-flex">
-              <div className="widget-header ms-2">
-                <a href="/#" className="icon icon-sm rounded-circle bg-gray-200">
-                  <i className="fa fa-user"></i>
-                </a>
-              </div>
-
-              <div className="widget-header ms-2">
-                <a href="/#" className="icon icon-sm rounded-circle bg-gray-200">
-                  <i className="fa fa-heart"></i>
-                </a>
-              </div>
-
-              <div className="widget-header  ms-2">
-                <a href="/#" className="icon icon-sm rounded-circle bg-gray-200">
-                  <i className="fa fa-shopping-cart"></i>
-                  <span className="notify">0</span>
-                </a>
-              </div>
-            </div>
-          </div>
+          <HeaderIcons />
         </div>
-      </nav>
+      </section>
+
+      <HeaderNavigation />
     </header>
   );
 }
