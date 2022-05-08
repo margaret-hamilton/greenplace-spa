@@ -1,98 +1,31 @@
 import React from 'react';
 
+import { featuresList } from './features-list';
+
 export default function Features() {
   return (
-    <section className="bg-light padding-y">
+    <section className="padding-y bg-light">
       <div className="container">
-        <header className="section-heading mt-2 mb-5">
-          <h3 className="section-title">Why choose us</h3>
-        </header>
+        <article className="card p-3 p-lg-5">
+          <div className="row g-3">
+            {featuresList.map(({ title = '', description = '', icon = '' }, index) => (
+              <div className="col-lg-3 col-md-6" key={`icon-${index}`}>
+                <figure className="icontext">
+                  <div className="icon">
+                    <span className="icon-sm bg-primary-light text-primary rounded">
+                      <i className={`fa ${icon ? icon : ''}`} />
+                    </span>
+                  </div>
 
-        <div className="row mb-4">
-          <div className="col-lg-4 col-md-6">
-            <figure className="itemside align-items-center mb-4">
-              <div className="aside">
-                <span className="rounded-circle shadow-sm text-primary icon-lg bg-white">
-                  <i className="fa fa-money-bill"></i>
-                </span>
+                  <figcaption className="text">
+                    <h6 className="title">{title}</h6>
+                    <p>{description}</p>
+                  </figcaption>
+                </figure>
               </div>
-              <figcaption className="info">
-                <h6 className="title">Reasonable prices</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor </p>
-              </figcaption>
-            </figure>
+            ))}
           </div>
-
-          <div className="col-lg-4 col-md-6">
-            <figure className="itemside align-items-center  mb-4">
-              <div className="aside">
-                <span className="rounded-circle shadow-sm text-primary icon-lg bg-white">
-                  <i className="fa fa-star"></i>
-                </span>
-              </div>
-              <figcaption className="info">
-                <h6 className="title">Best quality</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor </p>
-              </figcaption>
-            </figure>
-          </div>
-
-          <div className="col-lg-4 col-md-6">
-            <figure className="itemside align-items-center  mb-4">
-              <div className="aside">
-                <span className="rounded-circle shadow-sm text-primary icon-lg bg-white">
-                  <i className="fa fa-plane"></i>
-                </span>
-              </div>
-              <figcaption className="info">
-                <h6 className="title">Worldwide shipping</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor </p>
-              </figcaption>
-            </figure>
-          </div>
-
-          <div className="col-lg-4 col-md-6">
-            <figure className="itemside align-items-center  mb-4">
-              <div className="aside">
-                <span className="rounded-circle shadow-sm text-primary icon-lg bg-white">
-                  <i className="fa fa-users"></i>
-                </span>
-              </div>
-              <figcaption className="info">
-                <h6 className="title">Customer satisfaction</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor </p>
-              </figcaption>
-            </figure>
-          </div>
-
-          <div className="col-lg-4 col-md-6">
-            <figure className="itemside align-items-center mb-4">
-              <div className="aside">
-                <span className="rounded-circle shadow-sm text-primary icon-lg bg-white">
-                  <i className="fa fa-thumbs-up"></i>
-                </span>
-              </div>
-              <figcaption className="info">
-                <h6 className="title">Happy customers</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor </p>
-              </figcaption>
-            </figure>
-          </div>
-
-          <div className="col-lg-4 col-md-6">
-            <figure className="itemside align-items-center mb-4">
-              <div className="aside">
-                <span className="rounded-circle shadow-sm text-primary icon-lg bg-white">
-                  <i className="fa fa-box"></i>
-                </span>
-              </div>
-              <figcaption className="info">
-                <h6 className="title">Thousand items</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmor </p>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
+        </article>
       </div>
     </section>
   );

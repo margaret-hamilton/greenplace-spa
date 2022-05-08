@@ -4,7 +4,7 @@ import IntroImage from '../../assets/images/intro/delivery-2.png';
 
 export default function Intro() {
   return (
-    <section className="bg-white shadow">
+    <section className="bg-light shadow">
       <div className="container">
         <div className="row align-items-center" style={{ minHeight: 520 }}>
           <div className="col-lg-6 col-xl-6 col-xxl-5">

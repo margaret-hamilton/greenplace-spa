@@ -6,9 +6,11 @@ export default function Home() {
     <>
       <Intro />
 
-      <Heading text="Produtos" />
-      <Products />
       <Features />
+
+      <Heading text="Produtos" />
+
+      <Products />
     </>
   );
 }
