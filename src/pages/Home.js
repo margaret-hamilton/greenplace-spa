@@ -1,5 +1,5 @@
 import React from 'react';
-import { Intro, Products, Heading, Features } from '../components';
+import { Intro, Products, Heading, Features, Footer } from '../components';
 
 export default function Home() {
   return (
@@ -11,6 +11,8 @@ export default function Home() {
       <Heading text="Produtos" />
 
       <Products />
+
+      <Footer />
     </>
   );
 }

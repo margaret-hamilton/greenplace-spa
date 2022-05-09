@@ -4,7 +4,7 @@ import { featuresList } from './features-list';
 
 export default function Features() {
   return (
-    <section className="padding-y bg-light">
+    <section className="padding-y bg-light border-bottom">
       <div className="container">
         <article className="card p-3 p-lg-5">
           <div className="row g-3">
