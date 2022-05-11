@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import GreenplaceLogo from './greenplace-logo.svg';
 
 export default function Logo({ linkTo = '/#' }) {
   return (
-    <a className="navbar-brand" href={linkTo}>
+    <Link className="navbar-brand" to={linkTo}>
       <img src={GreenplaceLogo} height={40} className="logo" alt="" />
-    </a>
+    </Link>
   );
 }

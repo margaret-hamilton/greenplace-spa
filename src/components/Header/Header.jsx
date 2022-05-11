@@ -5,14 +5,14 @@ import { HeaderNavigation } from './HeaderNavigation';
 import { HeaderSearch } from './HeaderSearch';
 import { Logo } from '../Logo';
 
-export default function Header() {
+export default function Header({ onFilterHandler }) {
   return (
     <header className="section-header">
-      <section className="navbar navbar-expand-lg navbar-dark bg-light">
+      <section className="navbar navbar-expand-lg navbar-dark bg-light fixed-top shadow border-bottom">
         <div className="container">
           <Logo />
 
-          <HeaderSearch />
+          <HeaderSearch onFilterHandler={onFilterHandler} />
 
           <HeaderIcons />
         </div>

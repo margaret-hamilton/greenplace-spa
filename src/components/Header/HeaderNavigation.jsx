@@ -1,10 +1,14 @@
 import React from 'react';
 
 import { menuOptions } from './menu-options';
+import { Link } from 'react-router-dom';
 
 export function HeaderNavigation() {
   return (
-    <nav className="navbar border-bottom navbar-dark bg-dark navbar-expand-lg">
+    <nav
+      className="navbar border-bottom navbar-dark bg-dark navbar-expand-lg"
+      style={{ marginTop: '70px' }}
+    >
       <div className="container">
         <button
           className="navbar-toggler border"
@@ -21,9 +25,9 @@ export function HeaderNavigation() {
           <ul className="navbar-nav">
             {menuOptions.map(({ name, link }) => (
               <li className="nav-item" key={name}>
-                <a className="nav-link" href={link}>
+                <Link className="nav-link" to={link}>
                   {name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

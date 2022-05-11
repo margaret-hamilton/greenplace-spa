@@ -6,7 +6,7 @@ export default function Features() {
   return (
     <section className="padding-y bg-light border-bottom">
       <div className="container">
-        <article className="card p-3 p-lg-5">
+        <article className="card p-3 p-lg-5 shadow">
           <div className="row g-3">
             {featuresList.map(({ title = '', description = '', icon = '' }, index) => (
               <div className="col-lg-3 col-md-6" key={`icon-${index}`}>

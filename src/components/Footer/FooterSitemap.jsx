@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function FooterSitemap() {
   return (
@@ -7,13 +8,13 @@ export function FooterSitemap() {
 
       <ul className="list-menu mb-4">
         <li>
-          <a href="/#"> Sobre a Greenplace </a>
+          <Link to="/sobre-a-greenplace"> Sobre a Greenplace </Link>
         </li>
         <li>
-          <a href="/#"> Sustentabilidade </a>
+          <Link to="/sustentabilidade"> Sustentabilidade </Link>
         </li>
         <li>
-          <a href="/#"> Frete e Entregas </a>
+          <Link to="/frete-e-entregas"> Frete e Entregas </Link>
         </li>
       </ul>
     </aside>

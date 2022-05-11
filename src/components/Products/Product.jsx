@@ -18,9 +18,9 @@ export function Product({ data }) {
         </figcaption>
 
         <div className="bottom-wrap">
-          <a href="/#" className="btn  btn-primary float-end">
-            Comprar
-          </a>
+          <button className="btn btn-primary float-end">
+            <i className="fa fa-cart-plus" />
+          </button>
 
           <div className="price-wrap lh-sm">
             {price && (

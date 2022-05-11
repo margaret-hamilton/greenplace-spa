@@ -13,10 +13,10 @@ export function HeaderIcons() {
       </div>
 
       <div className="widget-header  ms-2">
-        <a href="/#" className="icon icon-sm rounded-circle">
+        <button href="/#" className="icon icon-sm rounded-circle border">
           <i className="fa fa-shopping-cart"></i>
           <span className="notify">0</span>
-        </a>
+        </button>
       </div>
     </div>
   );
