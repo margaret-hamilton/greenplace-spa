@@ -12,7 +12,7 @@ export function HeaderSearch({ onFilterHandler = () => {} }) {
   }
 
   return (
-    <div className="col-lg-5 col-md-12 col-12">
+    <div className="ms-auto">
       <form onSubmit={handleSubmit}>
         <div className="input-group">
           <input

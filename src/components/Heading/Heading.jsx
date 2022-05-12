@@ -4,9 +4,7 @@ export default function Heading({ text = '' }) {
   return (
     <section className="padding-y">
       <div className="container">
-        <header className="section-heading">
-          <h3 className="section-title">{text}</h3>
-        </header>
+        <h3 className="section-title">{text}</h3>
       </div>
     </section>
   );

@@ -1,87 +1,129 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useState } from 'react';
 import urlSlug from 'url-slug';
 
 import { Heading } from '../Heading';
 
 import { Product } from './Product';
-import { ProductsLoading } from './ProductsLoading';
+import { HeaderSearch } from './HeaderSearch';
 
 import { spliceIntoChunks } from './helpers';
 
-const initialState = {
-  filter: [],
-  isLoading: true,
-  products: [],
-  searchTerm: '',
-};
+const data = [
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/1.jpg',
+    name: 'Câmera Digital GoPro Hero 9 Black',
+    seller: 'Fiap Store',
+    price: 3529,
+    id: '1',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/2.jpg',
+    name: 'Câmera EOS M200',
+    seller: 'Cannon Brasil',
+    price: 4999,
+    id: '2',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/3.jpg',
+    name: 'Celular Redmi 10 64 branco',
+    seller: 'Amazon',
+    price: 1300,
+    id: '3',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/4.jpg',
+    name: 'iPhone XR Apple 64GB Preto',
+    seller: 'FastShop',
+    price: 3419.05,
+    id: '4',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/5.jpg',
+    name: 'Galaxy Watch4 BT 40mm',
+    seller: 'Americanas',
+    price: 1198.99,
+    id: '5',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/6.jpg',
+    name: 'Mi Watch Lite 2',
+    seller: 'Xiami',
+    price: 499.99,
+    id: '6',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/7.jpg',
+    name: 'Headset Gamer Kotion Each G2000',
+    seller: 'Amazon',
+    price: 119.99,
+    id: '7',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/8.jpg',
+    name: 'Mochila Classic Azul',
+    seller: 'Zee Dog',
+    price: 79.99,
+    id: '8',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/9.jpg',
+    name: 'Bermuda Jeans Azul Escuro',
+    seller: 'Aramis',
+    price: 299.99,
+    id: '9',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/10.jpg',
+    name: 'Polo Lisa Outlet',
+    seller: 'Hering',
+    price: 99.99,
+    id: '10',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/11.jpg',
+    name: 'Jacketa Treking Mostarda',
+    seller: 'Dafiti',
+    price: 399,
+    id: '11',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/12.jpg',
+    name: 'Tech T-Shirt',
+    seller: 'Reserva',
+    price: 145.99,
+    id: '12',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/13.jpg',
+    name: 'Blazer Azul Royale',
+    seller: 'Aramis',
+    price: 699.99,
+    id: '13',
+  },
+  {
+    picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/14.jpg',
+    name: 'Carteira Jouse Série 1',
+    seller: 'Fiap Store ',
+    price: 99.99,
+    id: '14',
+  },
+];
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'SET_PRODUCTS': {
-      const products = action.payload;
-      const chunks = spliceIntoChunks(products, 4);
-
-      console.log(chunks);
-      return {
-        ...state,
-        isLoading: false,
-        rows: spliceIntoChunks(products, 4),
-        products,
-      };
-    }
-
-    case 'SET_SEARCH_TERM': {
-      const searchTerm = action.payload;
-
-      return {
-        ...state,
-        searchTerm: action.payload,
-        filter: state.products.filter(({ name }) => urlSlug(name).startsWith(urlSlug(searchTerm))),
-      };
-    }
-
-    default: {
-      return state;
-    }
-  }
-};
-
-export default function Products() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const { rows, isLoading } = state;
-
-  // function handleSearchTerm(event) {
-  //   dispatch({ type: 'SET_SEARCH_TERM', payload: event.target?.value || '' });
-  // }
-
-  useEffect(
-    () => {
-      fetch('https://6277ecd908221c96846ae116.mockapi.io/products')
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch({ type: 'SET_PRODUCTS', payload: data });
-        });
-    },
-    // eslint-disable-next-line
-    [],
-  );
-
+export function Products() {
   return (
     <section id="produtos" className="bg-white border-bottom">
       <div className="container">
-        <Heading text="Produtos" />
+        <div className="d-lg-flex align-items-center">
+          <Heading text="Produtos" />
 
-        {isLoading ? (
-          <ProductsLoading />
-        ) : (
-          rows.map((row, index) => (
-            <div className="row" key={`row-${index}`}>
-              {row.map((item, itemIndex) => (
-                <Product data={item} key={`product-${itemIndex}`} />
-              ))}
-            </div>
-          ))
-        )}
+          <HeaderSearch />
+        </div>
+
+        <div className="row">
+          {data.map((item, index) => (
+            <Product data={item} key={`product-${index}`} />
+          ))}
+        </div>
       </div>
     </section>
   );

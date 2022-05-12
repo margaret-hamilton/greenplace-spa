@@ -1,4 +1,4 @@
-export function spliceIntoChunks(arr, chunkSize) {
+export function spliceIntoChunks(arr = [], chunkSize = 1) {
   const res = [];
 
   while (arr.length > 0) {
