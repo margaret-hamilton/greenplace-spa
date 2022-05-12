@@ -1,10 +1,8 @@
 import React from 'react';
 
-export function HeaderSearch({ onFilterHandler = () => {} }) {
+export function HeaderSearch({ onChangeHandler = () => {} }) {
   function handleClickInput(event) {
     event.preventDefault();
-
-    document.getElementById('produtos').scrollIntoView();
   }
 
   function handleSubmit(event) {
@@ -21,7 +19,7 @@ export function HeaderSearch({ onFilterHandler = () => {} }) {
             style={{ width: '55%' }}
             placeholder="Buscar produtos..."
             onFocus={handleClickInput}
-            onChange={onFilterHandler}
+            onChange={onChangeHandler}
           />
 
           <button className="btn btn-success">

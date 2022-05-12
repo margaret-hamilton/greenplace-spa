@@ -6,8 +6,6 @@ import { Heading } from '../Heading';
 import { Product } from './Product';
 import { HeaderSearch } from './HeaderSearch';
 
-import { spliceIntoChunks } from './helpers';
-
 const data = [
   {
     picture: 'https://greenplace-fiap.netlify.app/assets/images/products/items/1.jpg',
@@ -110,19 +108,29 @@ const data = [
 ];
 
 export function Products() {
+  const [searchTerm, setSearchTerm] = useState(data);
+
+  function onChangeHandler(event) {
+    const { value = '' } = event.target;
+
+    setSearchTerm(value);
+  }
+
   return (
     <section id="produtos" className="bg-white border-bottom">
       <div className="container">
         <div className="d-lg-flex align-items-center">
           <Heading text="Produtos" />
 
-          <HeaderSearch />
+          <HeaderSearch onChangeHandler={onChangeHandler} />
         </div>
 
         <div className="row">
-          {data.map((item, index) => (
-            <Product data={item} key={`product-${index}`} />
-          ))}
+          {data
+            .filter((item) => urlSlug(item.name).startsWith(urlSlug(searchTerm)))
+            .map((item, index) => (
+              <Product data={item} key={`product-${index}`} />
+            ))}
         </div>
       </div>
     </section>
