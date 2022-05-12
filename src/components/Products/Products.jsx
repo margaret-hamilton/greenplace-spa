@@ -109,12 +109,17 @@ const data = [
 
 export function Products() {
   const [searchTerm, setSearchTerm] = useState(data);
+  const [searchResults, setSearchResults] = useState([]);
 
   function onChangeHandler(event) {
     const { value = '' } = event.target;
 
     setSearchTerm(value);
   }
+
+  React.useEffect(() => {
+    setSearchResults(data.filter((item) => urlSlug(item.name).startsWith(urlSlug(searchTerm))));
+  }, [searchTerm]);
 
   return (
     <section id="produtos" className="bg-white border-bottom">
@@ -126,11 +131,9 @@ export function Products() {
         </div>
 
         <div className="row">
-          {data
-            .filter((item) => urlSlug(item.name).startsWith(urlSlug(searchTerm)))
-            .map((item, index) => (
-              <Product data={item} key={`product-${index}`} />
-            ))}
+          {searchResults.length > 0
+            ? searchResults.map((item, index) => <Product data={item} key={`product-${index}`} />)
+            : data.map((item, index) => <Product data={item} key={`product-${index}`} />)}
         </div>
       </div>
     </section>
